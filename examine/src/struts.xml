@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.convention.action.mapallmatches" value="true" />
+	<constant name="struts.multipart.maxSize" value="1000000000"></constant>
+	<!-- struts2.3.16之后默认不允许用action！method的方法，更改如下： -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<package name="default" extends="json-default" namespace="/">
+		<action name="createannualplan" class="action.CrtAnnPlanAct" method="execute">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryannualplanlist" class="action.QueryData" method="queryannualplanlist">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryannualplanlist2" class="action.QueryData" method="queryannualplanlist2">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="loginw" class="action.QueryData" method="loginchecker">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="updateannualplanlist" class="action.UpdateData" method="updateannualplanlist">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		
+		<action name="queryannualplan" class="action.QueryData" method="queryannualplan">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryannualplan2" class="action.QueryData" method="queryannualplan2">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		
+		
+		<action name="updateannualplan" class="action.UpdateData" method="updateannualplan">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryrecordtable1" class="action.QueryData" method="queryrecord1">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryrecordtable2" class="action.QueryData" method="queryrecord2">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="updaterecord1" class="action.UpdateData" method="updaterecord1">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="updaterecord2" class="action.UpdateData" method="updaterecord2">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="checkuser" class="action.UserAction" method="check">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="register" class="action.UserAction" method="regist">
+			<result name="success">registerSuccess.html</result>
+			<result name="error">register.html</result>
+			<result name="input">register.html</result>
+		</action>
+		<action name="checkUsername" class="action.UserAction" method="checkUsername">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="forgetpassword" class="action.UserAction" method="findpassword">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="queryannpred" class="action.PredAnnAction" method="queryannpred">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="getauthority" class="action.AuthorityInterceptor" method="getAuthority">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="logout" class="action.AuthorityInterceptor" method="logout">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="getdepartment" class="action.DepartmentAction" method="getdepartment">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>    

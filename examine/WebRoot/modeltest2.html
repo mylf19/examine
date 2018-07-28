@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="easyui/themes/black/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/demo.css">
+<link rel="stylesheet" href="css/bootstrap.min2.css">
+
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+		//设置一个全局变量来控制弹出框关闭
+		var bClose=false;
+		//弹出框的属性设置
+		$("#myDlg").dialog({
+			modal: true,
+			closable: true,
+			closed: true,
+			buttons: '#myDlg-buttons',
+			onBeforeClose:function(){//关闭弹出框之前动作-弹出提示
+            	if (!bClose) {  
+                    $.messager.confirm("提醒", "确定关闭该窗口?",function (r) {  
+    					if (r) {  
+    						bClose = true;//标记可以退出  
+    						$("#myDlg").dialog("close");  
+                         }  
+                 	});  
+    			}
+            	return bClose;  //通过全局变量来控制是否关闭窗口  
+		   	}
+		});
+		//弹出框打开
+		$('#myDlg-openBtn').click(function(){
+			//先设置为false;
+			bClose=false;
+			$('#myDlg').dialog("open");
+			document.getElementById("shunhao").value="hello";
+			document.getElementById("shebeiid").value="hello";
+			document.getElementById("shebeimingcheng").value="hello";
+			//document.getElementById("shebeisuozaidi").value="hello";
+			document.getElementById("gongzuoneirong").value="hello";
+			//document.getElementById("danwei").value="hello";
+			document.getElementById("jianxiucishu").value="hello";
+			document.getElementById("jianxiushijian").value="hello";
+			document.getElementById("jilubiaogeshi").value="hello";
+			document.getElementById("beizhu").value="hello";
+		});
+		
+		//点击保存,假定保存成功
+		$('#myDlg-saveBtn').click(function(){
+			$.messager.alert("提示信息","操作成功!","info");
+			//这里在后面加true,将会绕过onBeforeClose事件,弹出框直接关闭
+			$('#myDlg').dialog("close",true);
+		});
+		
+		//点击关闭
+		$('#myDlg-closeBtn').click(function(){
+			$('#myDlg').dialog("close");
+		});
+		
+	})
+</script>
+
+
+<a href="javascript:void(0)" class="easyui-linkbutton"
+		id="myDlg-openBtn">弹出弹出框</a>
+	<div id="myDlg-buttons">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" id="myDlg-saveBtn">确定</a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="myDlg-closeBtn">取消</a>
+	</div>
+	<div id="myDlg" class="easyui-dialog" title="测试dialog"
+		style="width: 800px; height: 600px; padding: 5px">
+			<form class="form-horizontal">
+			<fieldset>
+				<div id="legend" class="">
+					<legend class="">修改内容</legend>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">顺号</label>
+					<div class="controls">
+						<input type="text" placeholder="N1" class="input-xlarge" id="shunhao">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="input01">设备ID</label>
+					<div class="controls">
+						<input type="text" placeholder="1" class="input-xlarge" id="shebeiid">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">设备名称</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge" id="shebeimingcheng">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">设备所在地</label>
+					<div class="controls">
+						<select class="input-xlarge"  id="shebeisuozaidi">
+							<option>肃宁分公司</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">工作内容</label>
+					<div class="controls">
+						<input type="text" placeholder="集中检修" class="input-xlarge"  id="gongzuoneirong">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">单位</label>
+					<div class="controls">
+						<select class="input-xlarge"  id="danwei">
+							<option>站</option>
+							<option>台</option>
+							<option>套</option>
+							<option>组</option>
+							<option>次</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修次数</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge" id="jianxiucishu">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修时间</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"  id="jianxiushijian">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">记录表格式</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge" id="jilubiaogeshi">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注</label>
+					<div class="controls">
+						<div class="textarea">
+							<textarea type="" class=""  id="beizhu"> </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-success">保存</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>	
+	</div>
+
+
+
+
+
+</body>
+</html>

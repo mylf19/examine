@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>部门管理</title>
+
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/department.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div>
+<div class="row">
+		<div class="panel panel-success" style="max-width:1200px;margin-top:20px;margin-left:50px">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="input-group ">
+						<span class="input-group-addon">分公司 </span>
+						<select id="selector1" style="width:150px;height:30px" class="js-example-basic-single">
+							<option selected="selected">请选择</option>
+			                <!-- 
+			                <option value="朔黄铁路肃宁分公司">朔黄铁路肃宁分公司</option>
+			                <option value="朔黄铁路机辆分公司">朔黄铁路机辆分公司</option>
+			                 -->
+						</select>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="input-group ">
+						<span class="input-group-addon">工    队 </span>
+						<select id="selector2" style="width:150px;height:30px" class="js-example-basic-single">
+							<option selected="selected">请选择</option>
+			                <!-- 
+			                 <option value="网管中心">网管中心 </option>
+			                <option value="工务">工务 </option>
+			                 -->
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="input-group ">
+						<span class="input-group-addon">作业组 </span>
+						<select id="selector3" style="width:150px;height:30px" class="js-example-basic-single">
+							<option selected="selected">请选择</option>
+			                <!-- 
+			                 <option value="第一作业组">第一作业组</option>
+			                <option value="第二作业组">第二作业组</option>
+			                <option value="第三作业组">第三作业组</option>
+			                 -->
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<button class="btn btn-success"	style="width: 80px;height:35px;margin-left: 20px" onclick="test2()">查询</button>
+					<button class="btn btn-success"	style="width: 80px;height:35px;margin-left: 20px" onclick="">添加</button>
+					<br> <label id="idlabel1"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h1>没有JS操作合并前的效果</h1>
+<table width="400" border=1 id="theTable" >
+	<thead>
+    	<tr>
+        	<th>编号</th>
+            <th>数字测试1</th>
+            <th>数字测试2</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+          <td>001</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>5</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>005</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>006</td>
+          <td>14</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>006</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>006</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>007</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+    </tbody>
+</table>
+<h1>JS操作合并后的效果</h1>
+<table width="400" border=1 id="theTable" >
+	<thead>
+    	<tr>
+        	<th>编号</th>
+            <th>数字测试1</th>
+            <th>数字测试2</th>
+        </tr>
+    </thead>
+    <tbody id="j-tbody">
+		
+    </tbody>
+</table>
+	
+	
+</div>
+</body>
+</html>

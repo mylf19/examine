@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="easyui/easyloader.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/querycontent.js"></script>
+
+<style type="text/css">
+.div_inline {
+	display: inline;
+	float: left;
+	border: 1px solid #000;
+	width: 590px;
+}
+
+.td1_style {
+	word-break: break-all;
+	background-color: rgb(219, 229, 241);
+	border-color: rgb(221, 221, 221);
+	border-width: 1px;
+	border-style: solid;
+	valign: top;
+}
+
+.td2_style {
+	word-break: break-all;
+	border-color: rgb(221, 221, 221);
+	border-width: 1px;
+	border-style: solid;
+}
+</style>
+<title>年记录表</title>
+</head>
+<body>
+	<div>
+		<a href="welcome.html" style="derection:none">首页</a>
+	</div>
+	<div>
+		<p>功能简介</p>
+		<p>查看记录表</p>
+	</div>
+	<div style="text-align:center">
+		<!-- 	<table border="1" cellpadding="3" cellspacing="0" style="width: 60%;margin:auto">                            <tr><td></td>                                                                                  </tr>                            <tr>
+		</table> -->
+
+		<table data-sort="sortDisabled" cellpadding="3" cellspacing="0"	style="margin:auto;margin-bottom:20px;">
+			<tbody>
+				<tr class="firstRow">
+					<th rowspan="1" colspan="4" style="word-break: break-all;">
+						检修记录表</th>
+				</tr>
+				<tr>
+					<td class="td1_style" align="right" width="150px">表名</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;" id="tablename"/>
+					</td>
+					<td valign="top" class="td1_style" align="right" width="150px">表格式编码</td>
+					<td valign="top" width="200" class="td2_style">
+						<input	name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="table_type"/>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" class="td1_style" align="right">设备名称</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="machine_name"/>
+					</td>
+					<td valign="top" class="td1_style" align="right">设备所在地</td>
+					<td valign="top" width="200" class="td2_style">
+						<input	name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="machine_location"/>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" class="td1_style" align="right">设备类型</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="machine_type"/>
+					</td>
+					<td valign="top" class="td1_style" align="right">检修时间</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="examine_time"/>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" class="td1_style" align="right">检修人</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="examine_people"/>
+					</td>
+					<td valign="top" class="td1_style" align="right">辅助检修人</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1"style="text-align: left; width: 220px;"  id="examine_com"/>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" class="td1_style" align="right">审核人</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="examine_checker"/>
+					</td>
+					<td valign="top" class="td1_style" align="right">设备数量<br/>
+					</td>
+					<td valign="top" width="200" class="td2_style">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="examine_count"/>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" class="td1_style" align="right">检修结果</td>
+					<td valign="top" width="200" class="td2_style">
+						<input	name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="exmaine_result"/>
+					</td>
+					<td valign="top" class="td1_style" align="right">部门主管</td>
+					<td valign="top" class="td2_style" width="200">
+						<input name="leipiNewField" type="text" title="id1" style="text-align: left; width: 220px;"  id="department_master"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="4">
+						<div style="">
+							<input value="提交" type="button" id="confirmbutton" style="height:30px;width:50px;margin-top:20px"/>
+		            	</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<table id="recordcontent"
+			data-options="rownumbers:true,
+		singleSelect:true,
+		autoRowHeight:false,
+		pagination:true,
+		nowrap:false">
+		</table>
+	</div>
+	
+	
+	
+	<div id="contentdialog" class="easyui-dialog" title="检修内容" style="width: 700px; height: 350px; padding: 5px">
+		<h2 style="text-align: center;">检修内容填写</h2>
+		<table>
+		    <tbody>
+		        <tr class="firstRow">
+		            <td width="211" valign="top" style="word-break: break-all;">检修内容 </td>
+		            <td width="207" valign="top" style="word-break: break-all;">检修要求</td>
+		            <td width="204" valign="top" style="word-break: break-all;">结果描述</td>
+		        </tr>
+		        <tr>
+		            <td width="211" valign="top" style="word-break: break-all;">
+		                <textarea title="content" id="contenttextarea" name="leipiNewField" leipiplugins="textarea" orgrich="0" orgfontsize="" orgwidth="200" orgheight="80" style="width: 200px; height: 80px;"></textarea>
+		            </td>
+		            <td width="207" valign="top" style="word-break: break-all;">
+		                <textarea title="require" id="requiretextarea" name="leipiNewField" leipiplugins="textarea" orgrich="0" orgfontsize="" orgwidth="200" orgheight="80" style="width: 200px; height: 80px;"></textarea>
+		            </td>
+		            <td width="204" valign="top" style="word-break: break-all;">
+		                <textarea title="result" id="resulttextarea" name="leipiNewField" leipiplugins="textarea" orgrich="0" orgfontsize="" orgwidth="200" orgheight="80" style="width: 200px; height: 80px;"></textarea>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td width="204" valign="top" colspan="3">是否正常
+		                <span leipiplugins="radios" title="correct" name="leipiNewField" style="margin-top:20px">
+		                	<input name="leipiNewField" value="正常" checked="" type="radio"/>正常&nbsp;
+		                	<input name="leipiNewField" value="不正常" type="radio"/>不正常&nbsp;
+		                </span>
+		            </td>
+		        </tr>
+		        <tr style="height:20px">
+		            <td width="211" valign="top" style="word-break: break-all;"></td>
+		            <td width="207" valign="top" style="word-break: break-all;">
+		            	<div style="margin:30px">
+							<input value="确认" type="button" id="confirmbutton" style="height:30px;width:50px;margin-right:20px"/>
+							<input value="取消" type="button" id="concelbutton" style="height:30px;width:50px" onclick="concel()"/>
+		            	</div>
+					</td>
+		            <td width="204" valign="top"></td>
+		        </tr>
+		    </tbody>
+		</table>
+	</div>
+
+</body>
+</html>

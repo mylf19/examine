@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>test.html</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<link rel="stylesheet" href="css/demo.css" type="text/css">
+<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css"
+	type="text/css">
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+
+<SCRIPT type="text/javascript">
+	function setIframe(address) {
+        $('#frameBord').attr('src', address);
+    }
+		var setting = {
+			view: {
+				dblClickExpand: false,
+				showLine: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				onClick: onClick
+			}
+		};
+		var zNodes =[
+			{ id:1, pId:0, name:"设备故障统计分析系统", open:true,url:"welcome.html",target:"frameBord"},
+			{ id:11, pId:1, name:"导入数据", open:true, isParent:true,url:"daorushuju.html",target:"frameBord"},
+			{ id:12, pId:1, name:"故障统计表", open:true},
+			{ id:121, pId:12, name:"通信系统",url:"gztj_1txxt.html",target:"frameBord"},
+			{ id:122, pId:12, name:"LTE系统",url:"gztj_2LTE.html",target:"frameBord"},
+			{ id:123, pId:12, name:"网络系统",url:"gztj_3wlxt.html",target:"frameBord"},
+			{ id:124, pId:12, name:"生活办公系统",url:"gztj_4shbg.html",target:"frameBord"},
+			{ id:13, pId:1, name:"故障设备分析", open:true,},
+			{ id:131, pId:13, name:"通信系统",url:"gzsb_1txxt2.html",target:"frameBord"},
+			{ id:132, pId:13, name:"LTE系统",url:"gzsb_2LTE2.html",target:"frameBord"},
+			{ id:133, pId:13, name:"网络系统",url:"gzsb_3wlxt2.html",target:"frameBord"},
+			{ id:134, pId:13, name:"生活办公系统",url:"gzsb_4shbg2.html",target:"frameBord"},
+			{ id:14, pId:1, name:"生成报表", open:true, isParent:true,url:"createReport.html",target:"frameBord"},
+			{ id:15, pId:1, name:"基站管段分配", open:true},
+			{ id:151, pId:15, name:"基站划分信息",url:"jzgd_jzhf.html",target:"frameBord"},
+			{ id:152, pId:15, name:"管辖工队信息",url:"jzgd_gxgd.html",target:"frameBord"},
+		];
+
+		function onClick(e,treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.expandNode(treeNode);
+		}
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+		
+	</SCRIPT>
+<style type="text/css">
+.ztree li button.switch {
+	visibility: hidden;
+	width: 1px;
+}
+
+.ztree li button.switch.roots_docu {
+	visibility: visible;
+	width: 16px;
+}
+
+.ztree li button.switch.center_docu {
+	visibility: visible;
+	width: 16px;
+}
+
+.ztree li button.switch.bottom_docu {
+	visibility: visible;
+	width: 16px;
+}
+</style>
+</head>
+
+<body>
+	<h1>朔黄铁路肃宁分公司网管中心设备故障（障碍）统计分析系统</h1>
+	<div class="content_wrap">
+		<div class="zTreeDemoBackground left">
+			<ul id="treeDemo" class="ztree"></ul>
+		</div>
+		<div class="right">
+			<div>
+				<iframe id="frameBord" name="frameBord" frameborder="0"
+					src="welcome.html" style="width:1000px;height:1000px;"> </iframe>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

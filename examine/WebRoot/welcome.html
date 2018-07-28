@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="easyui/easyloader.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/welcome.js"></script>
+
+<style >
+.body{
+background:#111111;
+}
+
+.datagrid-row-selected {
+  background: #000000;
+  color: #fff;
+}
+</style>
+<title>Welcome!</title>
+</head>
+<body>
+	<div>
+		<a href="#" style="derection:none">首页</a>
+	</div>
+	<div>
+		<p>功能简介</p>
+		<p>点击左侧年表进入年表列表，选中其中某一条数据，点击上方的查看按钮；会跳转到计划表页面；</p>
+		<p>点击计划表页面里面表格的某一条数据，点击上方的查看按钮，会跳转到对应的记录表页面；</p>
+		<div>
+			<input type="button" id="wel_btn1" onclick="wel_btn_login()" value="登陆"/>
+			<input type="button" id="wel_btn2" onclick="wel_btn_register()" value="注册"/> 
+			<input type="button" id="wel_btn3" onclick="wel_btn_findpwd()" value="找回密码"/> 
+			<input type="button" id="wel_btn4" onclick="wel_btn_produce()" value="注销"/> 
+			<input type="button" id="wel_btn5" onclick="wel_btn_test()" value="显示数据测试"/> 
+			<input type="text" id="testtext">
+			<input type="button" id="testbtn" value="测试" onclick="ggg()">
+		</div>
+		<table id="dg" data-options="rownumbers:true,
+		singleSelect:true,
+		autoRowHeight:false,
+		pagination:true,
+		nowrap:false">
+		</table>
+	</div>
+</body>
+</html>

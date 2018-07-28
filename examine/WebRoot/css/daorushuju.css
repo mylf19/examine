@@ -1,0 +1,84 @@
+@charset "utf-8";
+body {
+    height: 700px;
+    background-color: #CDE1FB;
+    padding: 0;
+    marging: 0
+}
+/*logo条*/
+.logo-bar {
+    height: 40px;
+    font-size: large;
+    vertical-align: middle;
+   /* text-align: center;*/
+    line-height: 40px;
+}
+/*导航条*/
+.nav-bar {
+    height: 40px;
+    text-align: center;
+    font-size: large;
+    line-height: 40px;
+    padding: 0;
+    marging: 0;
+    width: 100%;
+    float:left; 
+    
+}
+/*导航条跟随*/
+.nav-bar-fixed {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    background-color: #FF6668;
+    opacity: 0.68;
+    width: 100%;
+}
+/*导航条下li*/
+.nav-bar> li {
+    display: inline-block;/*让li水平排列*/
+}
+
+/*导航条下a*/
+.nav-bar> li > a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    -webkit-transition: color .1s ease-in-out;
+    transition: color .1s ease-in-out;
+    margin-left: 75px;  /*颜色递进*/
+    margin-right: 75px;
+}
+
+
+.nav-bar> li > a:hover {
+    color: #00ABFF;
+}
+
+/*导航栏下划线效果右进右出，需要设置父元素li：position: relative;*/
+.nav-bar> li > a:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: solid 1px;
+    transform: scaleX(0);
+    transform-origin: right;/*改为center就是中间向外延伸*/
+    -webkit-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    color: #0023FF;
+}
+/*导航栏下划线效果：右进改为左进*/
+.nav-bar> li > a:hover:after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+/*导入数据 下拉单选框*/
+.daoru{
+	width: 100px;
+	height: 30px;
+	
+}
+.daoru

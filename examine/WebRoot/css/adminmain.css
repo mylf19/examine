@@ -1,0 +1,28 @@
+.allTop {
+	height: 80px;
+	width: 100%;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	margin: 0px;
+	float:left;
+	display:flex;
+}
+.logoImg{
+	height:80px;
+	width:150px;
+}
+.topTitle{
+	width:100%;
+	height:100%;
+	font-size:36px;
+
+	text-align:center;
+	padding:20px 0px;
+
+/*
+	left:300px;
+	position:absolute;
+	top:20px;
+	font-size:36px;
+	 */
+}

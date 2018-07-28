@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/demo.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap_form.css"></link>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="easyui/easyloader.js"></script>
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/queryannualplan.js"></script>
+
+<title>年计划表列表</title>
+</head>
+<body>
+	<div>
+		<a href="welcome.html" style="derection:none">首页</a>
+	</div>
+	<div>
+		<a href="JavaScript:void(0);text-decoration: none; color: inherit;"
+			class="small-box-footer" data-toggle="modal" data-target="#myModal">功能简介</a>
+		<p>查看年表</p>
+		<table id="annualplantable"
+			data-options="rownumbers:true,
+		singleSelect:true,
+		autoRowHeight:false,
+		pagination:true,
+		nowrap:false">
+		</table>
+	</div>
+
+	<div id="myDlg" class="easyui-dialog" title="------" style="width: 550px; height: 750px; padding: 5px">
+		<form class="form-horizontal">
+			<fieldset>
+				<!--  
+				<div id="legend" class="">
+					<legend class="">修改内容</legend>
+				</div>
+				-->
+				<div class="control-group">
+					<label class="control-label" for="input01">顺号</label>
+					<div class="controls">
+						<input type="text" placeholder="N1" class="input-xlarge"
+							id="shunhao">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="input01">设备ID</label>
+					<div class="controls">
+						<input type="text" placeholder="1" class="input-xlarge"
+							id="shebeiid">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">设备名称</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"
+							id="shebeimingcheng">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">设备所在地</label>
+					<div class="controls">
+						<select class="input-xlarge" id="shebeisuozaidi">
+							<option>肃宁分公司</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">工作内容</label>
+					<div class="controls">
+						<textarea type="" class="" id="gongzuoneirong"> </textarea>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">单位</label>
+					<div class="controls">
+						<select class="input-xlarge" id="danwei">
+							<option>件</option>
+							<option>站</option>
+							<option>台</option>
+							<option>套</option>
+							<option>组</option>
+							<option>次</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">设备数量</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"
+							id="shebeishuliang">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修次数</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"
+							id="jianxiucishu">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修时间</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"
+							id="jianxiushijian">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">记录表格式</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge"
+							id="jilubiaogeshi">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注</label>
+					<div class="controls">
+						<div class="textarea">
+							<textarea type="" class="" id="beizhu"> </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<input type="button" class="" id="modelsave" value="保存">
+						<input type="button" class="" id="modelconcel" value="取消">
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+</html>

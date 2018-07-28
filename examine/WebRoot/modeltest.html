@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Window Layout - jQuery EasyUI Demo</title>
+<link rel="stylesheet" type="text/css"
+	href="easyui/themes/black/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/demo.css">
+<link rel="stylesheet" href="css/bootstrap.min2.css">
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+	function showdiv() {
+		document.getElementById("bg").style.display = "block";
+	//document.getElementById("show").style.display ="block";
+	}
+	function hidediv() {
+		document.getElementById("bg").style.display = 'none';
+	//document.getElementById("show").style.display ='none';
+	}
+</script>
+<style type="text/css">
+#bg {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.7;
+	opacity: .70;
+	filter: alpha(opacity = 70);
+}
+
+#show {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 22%;
+	width: 53%;
+	height: 49%;
+	padding: 8px;
+	border: 8px solid #E8E9F7;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+
+body {
+	padding-top: 100px;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var $win;
+		$win = $('#test-window').window({
+			title : '添加课程设置信息',
+			width : 820,
+			height : 450,
+			top : ($(window).height() - 820) * 0.5,
+			left : ($(window).width() - 450) * 0.5,
+			shadow : true,
+			modal : false,
+			iconCls : 'icon-add',
+			closed : true,
+			minimizable : false,
+			maximizable : false,
+			collapsible : false,
+			onClose : function() {
+				hidediv();
+			}
+		});
+		jQuery(document).ready(function() {
+			$('#test-window').dialog({
+				onClose : function() {
+					//			hidediv();
+				}
+			});
+		})
+		
+		
+		
+$(function(){
+		//设置一个全局变量来控制弹出框关闭
+		var bClose=false;
+		//弹出框的属性设置
+		$("#myDlg").dialog({
+			modal: true,
+			closable: true,
+			closed: true,
+			buttons: '#myDlg-buttons',
+			onBeforeClose:function(){//关闭弹出框之前动作-弹出提示
+		            	if (!bClose) {  
+		                    $.messager.confirm("提醒", "确定关闭该窗口?",function (r) {  
+		    					if (r) {  
+		    						bClose = true;//标记可以退出  
+		    						$("#myDlg").dialog("close");  
+		                         }  
+		                 	});  
+		    			}
+		            	return bClose;  //通过全局变量来控制是否关闭窗口  
+		   	}
+		});
+		//弹出框打开
+		$('#myDlg-openBtn').click(function(){
+			//先设置为false;
+			bClose=false;
+			$('#myDlg').dialog("open");
+		});
+		
+		//点击保存,假定保存成功
+		$('#myDlg-saveBtn').click(function(){
+			$.messager.alert("提示信息","操作成功!","info");
+			//这里在后面加true,将会绕过onBeforeClose事件,弹出框直接关闭
+			$('#myDlg').dialog("close",true);
+		});
+		
+		//点击关闭
+		$('#myDlg-closeBtn').click(function(){
+			$('#myDlg').dialog("close");
+		});
+		
+	})
+		//$win.window('open');
+	</script>
+	<h2>Window Layout</h2>
+	<p>Using layout on window.</p>
+	<div style="margin:20px 0;">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			onclick="$('#w').window('open')">Open</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			onclick="$('#w').window('close')">Close</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			onclick="$('#test-window').window('open'); showdiv()">test1</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			onclick="$('#test-window').window('close')">test2</a>
+	</div>
+	<div id="w" class="easyui-window" title="Window Layout"
+		data-options="iconCls:'icon-save'"
+		style="width:500px;height:200px;padding:5px;">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'east',split:true" style="width:100px"></div>
+			<div data-options="region:'center'" style="padding:10px;">
+				jQuery EasyUI framework help you build your web page easily.</div>
+			<div data-options="region:'south',border:false"
+				style="text-align:right;padding:5px 0 0;">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
+					href="javascript:void(0)" onclick="javascript:alert('ok')"
+					style="width:80px">Ok</a> <a class="easyui-linkbutton"
+					data-options="iconCls:'icon-cancel'" href="javascript:void(0)"
+					onclick="javascript:alert('cancel')" style="width:80px">Cancel</a>
+			</div>
+		</div>
+	</div>
+	<div id="test-window" class="easyui-window" title="Login"
+		style="width: 550px; height: 750px;">
+
+
+	</div>
+
+	<input id="btnshow" type="button" value="Show" onclick="showdiv();" />
+	<div id="bg"></div>
+	<div id="show">
+		测试 <input id="btnclose" type="button" value="Close"
+			onclick="hidediv();" />
+	</div>
+
+
+	<a href="javascript:void(0)" class="easyui-linkbutton"
+		id="myDlg-openBtn">弹出弹出框</a>
+	<div id="myDlg-buttons">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-ok'" id="myDlg-saveBtn">确定</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-cancel'" id="myDlg-closeBtn">取消</a>
+	</div>
+	<div id="myDlg" class="easyui-dialog" title="测试dialog"
+		style="width: 800px; height: 600px; padding: 5px">
+			<form class="form-horizontal">
+			<fieldset>
+				<div id="legend" class="">
+					<legend class="">修改内容</legend>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">顺号</label>
+					<div class="controls">
+						<input type="text" placeholder="N1" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="input01">设备ID</label>
+					<div class="controls">
+						<input type="text" placeholder="1" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">设备名称</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">设备所在地</label>
+					<div class="controls">
+						<select class="input-xlarge">
+							<option>肃宁分公司</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">工作内容</label>
+					<div class="controls">
+						<input type="text" placeholder="集中检修" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">单位</label>
+					<div class="controls">
+						<select class="input-xlarge">
+							<option>站</option>
+							<option>台</option>
+							<option>套</option>
+							<option>组</option>
+							<option>次</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修次数</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">检修时间</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">记录表格式</label>
+					<div class="controls">
+						<input type="text" placeholder="" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注</label>
+					<div class="controls">
+						<div class="textarea">
+							<textarea type="" class=""> </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-success">保存</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>	
+	</div>
+
+</body>
+</html>
